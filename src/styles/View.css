@@ -55,7 +55,7 @@
     background-color: rgba(4, 211, 4, 0.095);
 }
 
-.View_Col_2_Pending{
+.View_Col_2_Pending {
     display: flex;
     max-width: fit-content;
     align-items: center;
@@ -130,6 +130,10 @@
     margin-top: 2rem;
 }
 
+.View__Email {
+    font-size: 120%;
+}
+
 .Table,
 .Table__Small {
     margin-top: 2rem;
@@ -198,6 +202,10 @@
     .View_Col_4 button,
     .View_Col_5 button {
         width: 100%;
+    }
+
+    .View__Email {
+        font-size: medium;
     }
 
     .Table {

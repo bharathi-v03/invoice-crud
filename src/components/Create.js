@@ -55,7 +55,8 @@ function Create() {
                 style={{
                     backgroundColor: "white",
                     padding: "2rem",
-                    borderRadius: "15px"
+                    borderRadius: "15px",
+                    boxShadow: "0px 3px 5px 0px rgba(128, 128, 128, 0.078)"
                 }}
             >
                 <Box

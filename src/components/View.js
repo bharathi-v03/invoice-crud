@@ -142,7 +142,7 @@ function View() {
                     </div>
                     <div>
                         <p className='text-secondary'>Sent To</p>
-                        <p className='fs-5'><b>{invoice.email}</b></p>
+                        <p className='View__Email'><b>{invoice.email}</b></p>
                     </div>
                 </div>
                 <table className="table table-borderless Table">

@@ -69,7 +69,7 @@ function Home() {
                     </button>
                 </nav>
                 <div className='Total__Filter'>
-                    <p className='text-secondary Length'>There are {data.length} total invoices</p>
+                    <p className='text-secondary Length'>Invoices ({data.length})</p>
                     <TextField
                         select
                         label="Filter By"
