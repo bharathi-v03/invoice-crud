@@ -87,16 +87,15 @@
 
 .View_Col_5 button {
     border: none;
-    background-color: var(--blue);
     color: var(--white);
     padding: 10px 20px;
     border-radius: 30px;
     transition: 0.5s;
 }
 
-.View_Col_5 button:hover {
+/* .View_Col_5 button:hover {
     background-color: rgba(137, 29, 252, 0.475);
-}
+} */
 
 .View__Invoice {
     background-color: var(--white);

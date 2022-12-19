@@ -16,6 +16,8 @@ function View() {
     const navigate = useNavigate();
     const [invoice, setInvoice] = useState(null);
     const [paid, setPaid] = useState("");
+    const [paidTrue, setPaidTrue] = useState(false);
+    const [bacColor, setBacColor] = useState("rgb(137, 29, 252)");
 
     useEffect(() => {
         axios
@@ -24,13 +26,16 @@ function View() {
                 setInvoice(response.data);
                 setPaid(response.data.status);
                 if (response.data.status === "paid") {
-                    document.getElementById("markAsPaid").disabled = true;
-                    document.getElementById("markAsPaid").style.pointerEvents = "none";
-                    document.getElementById("markAsPaid").style.backgroundColor = "rgba(128, 128, 128, 0.327)";
+                    setPaidTrue(true);
+                    setBacColor("rgba(128, 128, 128, 0.327)");
+                }
+                if ((response.data.status === "pending")) {
+                    setPaidTrue(false);
+                    setBacColor("rgb(137, 29, 252)");
                 }
                 document.body.scrollTop = document.documentElement.scrollTop = 0
             });
-    }, [id]);
+    }, [id, bacColor]);
 
     const DeletePost = () => {
         axios
@@ -47,7 +52,6 @@ function View() {
             })
             .then(() => {
                 setPaid("paid");
-                document.getElementById("markAsPaid").disabled = true;
                 document.getElementById("markAsPaid").style.pointerEvents = "none";
                 document.getElementById("markAsPaid").style.backgroundColor = "rgba(128, 128, 128, 0.327)";
             })
@@ -113,7 +117,9 @@ function View() {
                     <p className='View_Col_3'><button onClick={() => navigate(`/edit/${invoice.id}`)}>Edit</button></p>
                     <p className='View_Col_4'><button className='btn btn-danger' onClick={DeletePost}>Delete</button></p>
                     <p className='View_Col_5'>
-                        <button className='Paid' onClick={UpdatePaid} id='markAsPaid'>
+                        <button className='Paid' onClick={UpdatePaid} disabled={paidTrue} id='markAsPaid'
+                            style={{ backgroundColor: bacColor }}
+                        >
                             Mark as Paid
                         </button>
                     </p>
