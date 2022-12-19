@@ -25,6 +25,7 @@ function Home() {
             .then((response) => {
                 setData(response.data);
                 console.log(response.data);
+                document.body.scrollTop = document.documentElement.scrollTop = 0
             })
     }, []);
 

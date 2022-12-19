@@ -28,6 +28,7 @@ function View() {
                     document.getElementById("markAsPaid").style.pointerEvents = "none";
                     document.getElementById("markAsPaid").style.backgroundColor = "rgba(128, 128, 128, 0.327)";
                 }
+                document.body.scrollTop = document.documentElement.scrollTop = 0
             });
     }, [id]);
 

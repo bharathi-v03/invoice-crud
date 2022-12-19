@@ -49,6 +49,7 @@ function Edit() {
                 setZipcode(response.data.zipcode)
                 setItemname(response.data.itemname);
                 setDataExist(true);
+                document.body.scrollTop = document.documentElement.scrollTop = 0
             });
     }, [id]);
 

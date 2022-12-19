@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useNavigate } from "react-router-dom";
 import { API } from '../api/api';
@@ -27,6 +27,10 @@ function Create() {
     const [address3, setAddress3] = useState(null);
     const [zipcode, setZipcode] = useState(null);
     const [itemname, setItemname] = useState(null);
+
+    useEffect(() => {
+        document.body.scrollTop = document.documentElement.scrollTop = 0
+    }, [])
 
     const CreatePost = (e) => {
         axios
