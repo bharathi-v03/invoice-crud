@@ -1,0 +1,50 @@
+.Edit {
+    width: 50%;
+    margin: auto;
+    padding: 5rem 0;
+}
+
+.Discard__Button {
+    margin-top: 1.5rem;
+    border: none;
+    background-color: rgba(137, 29, 252, 0.048);
+    color: var(--blue);
+    padding: 10px 20px;
+    border-radius: 30px;
+    transition: 0.5s;
+}
+
+.Discard__Button:hover {
+    background-color: rgba(137, 29, 252, 0.179);
+    color: var(--blue);
+}
+
+.Save__Button {
+    margin-top: 1.5rem;
+    border: none;
+    background-color: var(--blue);
+    color: var(--white);
+    padding: 10px 20px;
+    border-radius: 30px;
+    transition: 0.5s;
+    right: auto;
+}
+
+.Save__Button:hover {
+    background-color: rgba(137, 29, 252, 0.475);
+}
+
+@media only screen and (max-width: 1024px) {
+    .Edit {
+        width: 100%;
+        padding: 2rem 2rem;
+    }
+}
+
+@media only screen and (max-width: 370px) {
+
+    .Save__Button,
+    .Discard__Button {
+        width: 100%;
+    }
+}
