@@ -11,6 +11,7 @@ import dayjs from 'dayjs';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { DesktopDatePicker } from '@mui/x-date-pickers/DesktopDatePicker';
+import { motion } from "framer-motion";
 
 function Edit() {
 
@@ -80,7 +81,11 @@ function Edit() {
 
     return (
         <div className='Edit'>
-            <div
+            <motion.div
+                initial={{ y: 100, opacity: 0, scale: 0.5 }}
+                animate={{ y: 0, opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.2 }}
                 style={{
                     backgroundColor: "white",
                     padding: "2rem",
@@ -253,7 +258,7 @@ function Edit() {
                     <button type='submit' className='Save__Button ms-3' style={{ float: "right" }}>Save Changes</button>
                 </Box >
                 <button className='Discard__Button' onClick={() => navigate(-1)}>Cancel</button>
-            </div >
+            </motion.div >
         </div>
     );
 }

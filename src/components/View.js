@@ -8,6 +8,7 @@ import LinearProgress from '@mui/material/LinearProgress';
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 import FiberManualRecordIcon from '@mui/icons-material/FiberManualRecord';
 import moment from 'moment';
+import { motion } from "framer-motion";
 
 function View() {
 
@@ -71,7 +72,13 @@ function View() {
                 />
                 Go back
             </p>
-            <div className='View__Items'>
+            <motion.div
+                initial={{ y: 100, opacity: 0, scale: 0.5 }}
+                animate={{ y: 0, opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.2 }}
+                className='View__Items'
+            >
                 <div className='View__Subitems'>
                     <p className='View_Col_1 text-secondary'>Status</p>
                     {paid === "paid" ?
@@ -110,8 +117,14 @@ function View() {
                         </button>
                     </p>
                 </div>
-            </div>
-            <div className='View__Invoice'>
+            </motion.div>
+            <motion.div
+                initial={{ y: 100, opacity: 0, scale: 0.5 }}
+                animate={{ y: 0, opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4 }}
+                className='View__Invoice'
+            >
                 <div className='View__Row1'>
                     <div className='fs-5'><b>Invoice:<span className="text-secondary">#</span>{invoice.id}</b></div>
                     <div className='text-secondary'>
@@ -181,7 +194,7 @@ function View() {
                         </tr>
                     </tbody>
                 </table>
-            </div>
+            </motion.div>
         </div >
     );
 }

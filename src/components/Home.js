@@ -11,11 +11,13 @@ import FiberManualRecordIcon from '@mui/icons-material/FiberManualRecord';
 import moment from 'moment';
 import TextField from '@mui/material/TextField';
 import MenuItem from '@mui/material/MenuItem';
+import { motion } from "framer-motion";
 
 function Home() {
 
     const navigate = useNavigate();
     const [data, setData] = useState([]);
+    var animateTime = 0;
 
     useEffect(() => {
         axios
@@ -69,7 +71,7 @@ function Home() {
                     </button>
                 </nav>
                 <div className='Total__Filter'>
-                    <p className='text-secondary Length'>Invoices ({data.length})</p>
+                    <p className='text-secondary m-0'>Invoices ({data.length})</p>
                     <TextField
                         select
                         label="Filter By"
@@ -92,8 +94,15 @@ function Home() {
                 </div>
                 <div className='Home__Section'>
                     {[...data].reverse().map((ele) => {
+                        animateTime = animateTime + 0.2
                         return (
-                            <div key={ele.id} className='Home__Items' onClick={() => navigate(`/view/${ele.id}`)}>
+                            <motion.div
+                                initial={{ y: 100, opacity: 0, scale: 0.5 }}
+                                animate={{ y: 0, opacity: 1, scale: 1 }}
+                                viewport={{ once: true }}
+                                transition={{ duration: animateTime }}
+                                key={ele.id} className='Home__Items' onClick={() => navigate(`/view/${ele.id}`)}
+                            >
                                 <div className='Home__Subitems'>
                                     <p className='Col_1'>Invoice:<span className="text-secondary">#</span>{ele.id}</p>
                                     <p className="Col_2 text-secondary">{moment(ele.invoicedate).format('L')}</p>
@@ -137,7 +146,7 @@ function Home() {
                                         />
                                     </div>
                                 </div>
-                            </div>
+                            </motion.div>
                         )
                     })}
                 </div>
