@@ -170,7 +170,7 @@ function Home() {
                     "price": "6155.91",
                     "invoicedate": "2022-11-10T01:25:27.449Z",
                     "quantity": 2,
-                    "email": "Garrett.Koepp95@hotmail.com",
+                    "email": "Floyd_Harber95@hotmail.com",
                     "paymentdue": "2023-09-15T21:01:06.385Z",
                     "address1": "72648 Bartoletti Dam",
                     "address2": "Lake Selmer",
@@ -314,14 +314,24 @@ function Home() {
                     })}
                 </div>
                 :
-                <motion.button
-                    initial={{ opacity: 0, scale: 0.5 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: 3 }}
-                    className='btn btn-dark' onClick={generateSample} id="generate">
-                    Generate Sample Invoices
-                </motion.button>
+                <div>
+                    <motion.Box
+                        initial={{ opacity: 1 }}
+                        animate={{ opacity: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ delay: 5 }}
+                        sx={{ width: '100%' }}>
+                        <LinearProgress />
+                    </motion.Box>
+                    <motion.button
+                        initial={{ opacity: 0, scale: 0.5 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        viewport={{ once: true }}
+                        transition={{ delay: 5 }}
+                        className='btn btn-dark' onClick={generateSample} id="generate">
+                        Generate Sample Invoices
+                    </motion.button>
+                </div>
             }
         </div>
     );
